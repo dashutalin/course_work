@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="{{ url_for('static', filename='base.css' )}}" rel="stylesheet">
+    <title>DataBase</title>
+</head>
+<body>
+{% block header %}
+    <header>
+      <ul class="menu">
+          <li class="{{ 'active_link' if request.path == '/show' else 'menu_link' }}"><a href="{{ url_for('showAdmin') }}">Заявки</a></li>
+          <li class="{{ 'active_link' if request.path == '/allbuses' else 'menu_link' }}"><a href="{{ url_for('showBuses') }}">Автобусы</a></li>
+          <li class="{{ 'active_link' if request.path == '/allroutes' else 'menu_link' }}"><a href="{{ url_for('showRoutes') }}">Маршруты</a></li>
+          <li class="{{ 'active_link' if request.path == '/allworkers' else 'menu_link' }}"><a href="{{ url_for('showWorkers') }}">Водители</a></li>
+          <li class="menu_link"><a href="{{ url_for('logout') }}">Выйти</a></li>
+      </ul>
+    </header>
+{% endblock %}
+</body>
+</html>

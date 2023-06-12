@@ -1,0 +1,29 @@
+{% include 'baseUser.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='show.css' )}}" rel="stylesheet">
+
+<div>
+    <h3>Отправленные заявки</h3>
+    <table class="table">
+            <tr>
+                <th>Дата</th>
+                <th>Маршрут</th>
+                <th>Водитель</th>
+                <th>Автобус</th>
+                <th>Количество людей</th>
+                <th>Сумма</th>
+            </tr>
+                {% if claims %}
+                    {% for claim in claims %}
+                        <tr>
+                            <td>{{ claim[0] }}</td>
+                            <td>{{ claim[1] }}</td>
+                            {% if claim[2] %} <td>{{ claim[2] }}</td> {% else %} <td>Не определен</td> {% endif %}
+                            {% if claim[3] %} <td>{{ claim[3] }}</td> {% else %} <td>Не определен</td> {% endif %}
+                            <td>{{ claim[4] }}</td>
+                            <td>{{ claim[5] }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+        </table>
+</div>

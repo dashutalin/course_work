@@ -1,0 +1,43 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='forms.css' )}}" rel="stylesheet">
+
+      <div class="forms">
+          <form action="{{ url_for('showAdminClaim', id_claim=id) }}" method="post">
+              <p>
+                  <label>Дата: {{ res[0] }}</label>
+              </p>
+              <p>
+                  <label>Маршрут: {{ res[1] }}</label>
+              </p>
+              <p>
+                  <label>Заказчик: {{ res[2] }}</label>
+              </p>
+              <p>
+                  <label>Количество людей: {{ res[3] }}</label>
+              </p>
+              <p>
+                  <label>Сумма: {{ res[4] }}</label>
+              </p>
+              <p>
+                  <label>Водитель: </label>
+                  <select name="drivers">
+                      {% for driver in drivers %}
+                          <option value="{{ driver[2] }}">{{ driver[2] }}</option>
+                      {% endfor %}
+                  </select>
+              </p>
+              <p>
+                  <label>Автобусы: </label>
+                  <select name="buses">
+                      {% for bus in buses %}
+                          <option value="{{ bus[1] }}">{{ bus[1] }}</option>
+                      {% endfor %}
+                  </select>
+              </p>
+              <div class="button">
+                  <input type="submit" name="submit" value="Сохранить">
+                  <input type="submit" name="submit" value="Удалить">
+              </div>
+          </form>
+      </div>

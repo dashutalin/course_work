@@ -1,0 +1,36 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='show.css' )}}" rel="stylesheet">
+
+<div>
+    <table class="table">
+            <tr>
+                <th class="left-border">Дата</th>
+                <th>Маршрут</th>
+                <th>Водитель</th>
+                <th>Автобус</th>
+                <th>Заказчик</th>
+                <th>Количество людей</th>
+                <th class="right-border">Сумма</th>
+            </tr>
+            {% for claim in claims %}
+            <tr>
+                <td class="left-border"><a href="{{ url_for('showAdminClaim', id_claim=claim[0]) }}">{{ claim[1] }}</a></td>
+                <td><a href="{{ url_for('showAdminClaim', id_claim=claim[0]) }}">{{ claim[2] }}</a></td>
+                {% if claim[3] %} <td>{{ claim[3] }}</td> {% else %} <td>Не определен</td> {% endif %}
+                {% if claim[4] %} <td>{{ claim[4] }}</td> {% else %} <td>Не определен</td> {% endif %}
+                <td><a href="{{ url_for('showAdminClaim', id_claim=claim[0]) }}">{{ claim[5] }}</a></td>
+                <td><a href="{{ url_for('showAdminClaim', id_claim=claim[0]) }}">{{ claim[6] }}</a></td>
+                <td class="right-border"><a href="{{ url_for('showAdminClaim', id_claim=claim[0]) }}">{{ claim[7] }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+<!--    {% for claim in claims %}-->
+<!--        <p>Дата: {{ claim[0] }}</p>-->
+<!--        <p>Маршрут: {{ claim[1] }}</p>-->
+<!--        <p>Водитель: {{ claim[2] }}</p>-->
+<!--        <p>Автобус: {{ claim[3] }}</p>-->
+<!--        <p>Заказчик: {{ claim[4] }}</p>-->
+<!--        <hr>-->
+<!--    {% endfor %}-->
+</div>

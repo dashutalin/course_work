@@ -1,0 +1,27 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='show.css' )}}" rel="stylesheet">
+
+<div>
+    <table class="table">
+            <tr>
+                <th class="left-border">Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Возраст</th>
+                <th class="right-border">Пасспорт</th>
+            </tr>
+            {% for worker in workers %}
+            <tr>
+                <td class="left-border"><a href="{{ url_for('worker', id_worker=worker[0]) }}">{{ worker[1] }}</a></td>
+                <td><a href="{{ url_for('worker', id_worker=worker[0]) }}">{{ worker[2] }}</a></td>
+                <td><a href="{{ url_for('worker', id_worker=worker[0]) }}">{{ worker[3] }}</a></td>
+                <td><a href="{{ url_for('worker', id_worker=worker[0]) }}">{{ worker[4] }}</a></td>
+                <td class="right-border"><a href="{{ url_for('worker', id_worker=worker[0]) }}">{{ worker[5] }}</a></td>
+            </tr>
+            {% endfor %}
+    </table>
+    <div class="button">
+        <a href="{{ url_for('addWorkers') }}"><button>Добавить водителя</button></a>
+    </div>
+</div>

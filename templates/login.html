@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" href="{{ url_for('static', filename='login.css' )}}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>DataBase</title>
+</head>
+<body>
+    <div>
+        <h3>Авторизация</h3>
+        <div class="login_form">
+            <form method="POST" action="{{ url_for('login') }}">
+                <p>
+                    <input type="email" name="login" placeholder="Ваша почта" autofocus="">
+                </p>
+                <p>
+                    <input type="password" name="password" placeholder="Ваш пароль">
+                </p>
+
+                <div class="buttons">
+                    <button class="log_button">Войти</button>
+                    <button class="reg_button"><a href="{{ url_for('reg') }}">Зарегистрироваться</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

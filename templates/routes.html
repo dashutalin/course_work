@@ -1,0 +1,20 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='forms.css' )}}" rel="stylesheet">
+
+<div>
+    <h3>Добавить маршрут</h3>
+
+    {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash_{{ cat }}">{{ msg }}</div>
+    {% endfor %}
+
+    <div class="forms">
+          <form action="{{ url_for('addRoute') }}" method="post">
+            <p><label>Маршрут: </label><input type="text" name="route" required></p>
+            <p><label>Количество дней: </label><input type="number" min="1" name="days" required></p>
+            <p><label>Цена за человека: </label><input type="text" name="price" required></p>
+            <div class="button"><button>Добавить</button></div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='forms.css' )}}" rel="stylesheet">
+
+<div>
+    <div class="forms">
+        <form action="{{ url_for('bus', id_bus=id) }}" method="post">
+            <p><label>Номер: </label><input type="text" name="number" value="{{ res[1] }}"></p>
+            <p><label>Модель: </label><input type="text" name="model" value="{{ res[2] }}"></p>
+            <p><label>Год: </label><input type="number" name="year" value="{{ res[3] }}"></p>
+            <div class="button">
+                <input type="submit" name="submit" value="Сохранить">
+                <input type="submit" name="submit" value="Удалить">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='forms.css' )}}" rel="stylesheet">
+
+<div>
+    <h3>Добавить автобус</h3>
+
+    {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash_{{ cat }}">{{ msg }}</div>
+    {% endfor %}
+
+    <div class="forms">
+        <form action="{{ url_for('addBus') }}" method="post">
+            <p><label>Номер: </label><input type="text" name="number" required></p>
+            <p><label>Модель: </label><input type="text" name="model" required></p>
+            <p><label>Год: </label><input type="number" name="year" required></p>
+            <div class="button"><button>Добавить</button></div>
+        </form>
+    </div>
+</div>

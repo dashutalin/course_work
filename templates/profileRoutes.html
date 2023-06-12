@@ -1,0 +1,17 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='forms.css' )}}" rel="stylesheet">
+
+<div>
+    <div class="forms">
+          <form action="{{ url_for('route', id_route=id) }}" method="post">
+                <p><label>Маршрут: </label><input type="text" name="route" value="{{ res[1] }}"></p>
+                <p><label>Количество дней: </label><input type="number" min="1" name="days" value="{{ res[2] }}"></p>
+                <p><label>Цена за человека: </label><input type="text" name="price" value="{{ res[3] }}"></p>
+                <div class="button">
+                    <input type="submit" name="submit" value="Сохранить">
+                    <input type="submit" name="submit" value="Удалить">
+                </div>
+          </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" href="{{ url_for('static', filename='reg.css' )}}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>DataBase</title>
+</head>
+<body>
+    <div>
+        <h3>Регистрация</h3>
+        <div class="reg_form">
+            <form method="POST" action="{{ url_for('reg') }}">
+                <p><label>Имя: </label><input type="text" name="name" required></p>
+                <p><label>Почта: </label><input type="email" name="login" required></p>
+                <p><label>Пароль: </label><input type="password" name="psw" required></p>
+                <div class="reg_button"><button>Зарегистрироваться</button></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

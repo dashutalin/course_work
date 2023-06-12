@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="{{ url_for('static', filename='base.css' )}}" rel="stylesheet">
+    <title>DataBase</title>
+</head>
+<body>
+{% block header %}
+    <header>
+        <ul class="menu">
+            <li class="{{ 'active_link' if request.path == '/claims' else 'menu_link' }}"><a href="{{ url_for('showUser') }}">Посмотреть заявки</a></li>
+            <li class="{{ 'active_link' if request.path == '/new' else 'menu_link' }}"><a href="{{ url_for('newClaim') }}">Оставить заявку</a></li>
+            <li class="menu_link"><a href="{{ url_for('logout') }}">Выйти</a></li>
+        </ul>
+    </header>
+{% endblock %}
+</body>
+</html>

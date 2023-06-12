@@ -1,0 +1,28 @@
+{% include 'baseUser.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='forms.css' )}}" rel="stylesheet">
+
+<div>
+    <h3>Оставить новую заявку</h3>
+    <div class="forms">
+        <form action="{{ url_for('newClaim') }}" method="post">
+            <p>
+                <label for="date">Дата: </label>
+                <input type="date" id="date" name="date">
+            </p>
+            <p>
+                <label>Маршрут: </label>
+                <select name="route">
+                    {% for route in routes %}
+                        <option value="{{ route[0] }}">{{ route[0] }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p>
+                <label for="amount">Количество людей: </label>
+                <input type="number" min="1" name="amount" id="amount">
+            </p>
+            <div class="button"><button>Оставить заявку</button></div>
+        </form>
+    </div>
+</div>

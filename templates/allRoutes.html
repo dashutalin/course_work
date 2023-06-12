@@ -1,0 +1,23 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='show.css' )}}" rel="stylesheet">
+
+<div>
+    <table class="table">
+            <tr>
+                <th class="left-border">Направление</th>
+                <th>Количество дней</th>
+                <th class="right-border">Цена за человека</th>
+            </tr>
+            {% for route in routes %}
+            <tr>
+                <td class="left-border"><a href="{{ url_for('route', id_route=route[0]) }}">{{ route[1] }}</a></td>
+                <td><a href="{{ url_for('route', id_route=route[0]) }}">{{ route[2] }}</a></td>
+                <td class="right-border"><a href="{{ url_for('route', id_route=route[0]) }}">{{ route[3] }}</a></td>
+            </tr>
+            {% endfor %}
+    </table>
+    <div class="button">
+        <a href="{{ url_for('addRoute') }}"><button>Добавить маршрут</button></a>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{% include 'baseAdmin.html' %}
+{% block header %}{% endblock %}
+<link type="text/css" href="{{ url_for('static', filename='show.css' )}}" rel="stylesheet">
+
+<div>
+    <table class="table">
+            <tr>
+                <th class="left-border">Номер</th>
+                <th>Модель</th>
+                <th class="right-border">Год выпуска</th>
+            </tr>
+            {% for bus in buses %}
+            <tr>
+                <td class="left-border"><a href="{{ url_for('bus', id_bus=bus[0]) }}">{{ bus[1] }}</a></td>
+                <td><a href="{{ url_for('bus', id_bus=bus[0]) }}">{{ bus[2] }}</a></td>
+                <td class="right-border"><a href="{{ url_for('bus', id_bus=bus[0]) }}">{{ bus[3] }}</a></td>
+            </tr>
+            {% endfor %}
+    </table>
+    <div class="button">
+        <a href="{{ url_for('addBus') }}"><button>Добавить автобус</button></a>
+    </div>
+</div>
